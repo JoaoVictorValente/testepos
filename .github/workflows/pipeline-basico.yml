@@ -1,9 +1,7 @@
 name: pipeline-basico
 
 on:
-  push:
-    branches:
-      - "main"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -12,3 +10,4 @@ jobs:
     steps:
       - name: Executa comando
         run: echo "Configuração inicial do pipeline"
+
