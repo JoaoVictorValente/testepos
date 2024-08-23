@@ -15,5 +15,4 @@ on:
           - name: Exibir número aleatório
             run: |
               echo "random-number: ${{ steps.step-caller.outputs.random-number }}"
-              # Aqui adicionamos o comando para definir o shell
-              shell: bash
+            shell: bash  # Corrigido para estar no nível correto
