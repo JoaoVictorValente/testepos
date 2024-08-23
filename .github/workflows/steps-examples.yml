@@ -18,5 +18,3 @@ jobs:
 
       - name: Output random number
         run: echo "random-number: ${{ steps.step-caller.outputs.random-number }}"
-        shell: bash
-
