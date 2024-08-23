@@ -1,18 +1,22 @@
-name: steps examples
-on:  
+name: My Workflow
+
+on:
   push:
-    jobs:  
-      hello_world_job:
-        runs-on: ubuntu-latest
-        name: Exemplo de ação personalizada
-        steps:
-          - name: Checar o código
-            uses: actions/checkout@v4
-          - id: step-caller
-            uses: "./.github/actions/hello"
-            with:
-              the-caller: 'Myself'
-          - name: Exibir número aleatório
-            run: |
-              echo "random-number: ${{ steps.step-caller.outputs.random-number }}"
-            shell: bash  # Corrigido para estar no nível correto
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Actions
+        uses: actions/checkout@v4
+
+      - id: step-caller
+        uses: "./.github/actions/hello"
+        with:
+          the-caller: 'Myself'
+
+      - name: Display random number
+        run: |
+          echo "random-number: ${{ steps.step-caller.outputs.random-number }}"
+        shell: bash
