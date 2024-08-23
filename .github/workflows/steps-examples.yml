@@ -6,9 +6,9 @@ on:
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: Example of custom action
+    name: Exemplo de ação personalizada
     steps:
-      - name: Checkout Actions
+      - name: Checar o código
         uses: actions/checkout@v4
 
       - id: step-caller
@@ -16,6 +16,6 @@ jobs:
         with:
           the-caller: 'Myself'
 
-      - name: Output random number
+      - name: Exibir número aleatório
         run: echo "random-number: ${{ steps.step-caller.outputs.random-number }}"
         shell: bash
