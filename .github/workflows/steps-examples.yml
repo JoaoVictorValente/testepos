@@ -1,21 +1,19 @@
 name: steps examples
-
-on:
+on:  
   push:
-
-jobs:
-  hello_world_job:
-    runs-on: ubuntu-latest
-    name: Exemplo de ação personalizada
-    steps:
-      - name: Checar o código
-        uses: actions/checkout@v4
-
-      - id: step-caller
-        uses: "./.github/actions/hello"
-        with:
-          the-caller: 'Myself'
-
-      - name: Exibir número aleatório
-        run: echo "random-number: ${{ steps.step-caller.outputs.random-number }}"
-        shell: bash
+    jobs:  
+      hello_world_job:
+        runs-on: ubuntu-latest
+        name: Exemplo de ação personalizada
+        steps:
+          - name: Checar o código
+            uses: actions/checkout@v4
+          - id: step-caller
+            uses: "./.github/actions/hello"
+            with:
+              the-caller: 'Myself'
+          - name: Exibir número aleatório
+            run: |
+              echo "random-number: ${{ steps.step-caller.outputs.random-number }}"
+              # Aqui adicionamos o comando para definir o shell
+              shell: bash
